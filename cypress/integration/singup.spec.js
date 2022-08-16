@@ -121,14 +121,14 @@ describe('cadastro', function () {
         cy.wait(1000)
         cy.get('body')
     })
-    //definindo massa de teste
-    //const user = {
-    // name: 'Welder Vieira',
-    // email: 'Welder@samurai.com.br',
-    // password: 'pwd123'
-    //  }
+        //definindo massa de teste
+        const user = {
+         name: 'Welder Vieira',
+         email: 'Welder@samurai.com.br',
+        password: 'pwd123'
+     }
 
-    it.skip('deve cadastrar um novo funcionario com conexão no db para excluir o usuario cadastrado no banco', function () {
+    it('deve cadastrar um novo funcionario com conexão no db para excluir o usuario cadastrado no banco', function () {
 
         //criar uma task para remover o usuario do banco, para a massa seja sempre valida
         cy.task('removeUser', user.email)
@@ -154,7 +154,7 @@ describe('cadastro', function () {
         //cy.get('body')
     })
 
-    it.skip('deve exibir email cadastrado', function () {
+    it('deve exibir email cadastrado', function () {
 
         signupPage.go()
         cy.get('div [href="/signup"] ').click()
@@ -168,7 +168,7 @@ describe('cadastro', function () {
         // cy.get('body')
     })
 
-    context.skip('quando o email e incorreto', function () {
+    context('quando o email e incorreto', function () {
         //definindo massa de teste
         const user = {
             name: 'Elizabeth Olsen',
@@ -178,6 +178,7 @@ describe('cadastro', function () {
         it('deve exibir msg de alerta', function () {
 
             signupPage.go()
+            cy.get('div [href="/signup"] ').click()
             signupPage.form(user)
             signupPage.submit()
             signupPage.alertHaveText('Informe um email válido')
@@ -185,7 +186,7 @@ describe('cadastro', function () {
         })
     })
 
-    context.skip('quando a senha e muito curta', function () {
+    context('quando a senha e muito curta', function () {
 
         const passwords = ['1', '2a', 'ab3', 'abc4', 'ab#c5']
 
@@ -216,7 +217,7 @@ describe('cadastro', function () {
 
     })
 
-    context.only('quando não preencgo nenhum campo', function () {
+    context('quando não preencgo nenhum campo', function () {
 
         const alertMessanges = [
             'Nome é obrigatório',
