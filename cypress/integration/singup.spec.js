@@ -221,7 +221,7 @@ describe('cadastro', function () {
         const alertMessanges = [
             'Nome é obrigatório',
             'E-mail é obrigatório',
-            'Senha é obrigatóriaclear'
+            'Senha é obrigatória'
         ]
         before(function () {
             signupPage.go()
