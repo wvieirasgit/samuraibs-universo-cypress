@@ -147,7 +147,7 @@ describe('cadastro', function () {
 
         signupPage.submit()
 
-        //validação do resultado esperado
+        //validação do resultado esperado Email já cadastrado para outro usuário.
         signupPage.toast.shouldHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
 
         //cy.wait(1000)
@@ -161,7 +161,7 @@ describe('cadastro', function () {
 
         signupPage.form(user)
         signupPage.submit()
-        signupPage.toastHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
+        signupPage.toast.shouldHaveText('Email já cadastrado para outro usuário.')
 
 
         // cy.wait(1000)

@@ -24,7 +24,7 @@ class SingupPage {
 
     }
     toastHaveText(expectText) {
-        cy.get(el.toast)
+        cy.get(el.toast,{timeout:3000})
             .should('be.visible')
             .find('p')
             .should('have.text', expectText)
