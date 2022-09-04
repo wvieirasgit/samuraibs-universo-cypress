@@ -1,23 +1,30 @@
-import {el} from './elements'
+import { el } from './elements'
 import toast from '../../components/toast'
+import alert from '../../components/alert'
 
-class loginPage{
+class loginPage {
 
-    constructor(){
+    constructor() {
         this.toast = toast
+        this.alert = alert
     }
-    go(){
+    go() {
 
         cy.visit('/')
     }
 
-    form(user){
+    form(user) {
 
-        cy.get(el.email).type(user.email)
-        cy.get(el.password).type(user.password)
+        cy.get(el.email)
+            .clear()
+            .type(user.email)
+
+        cy.get(el.password)
+            .clear()
+            .type(user.password)
     }
 
-    submit(){
+    submit() {
 
         cy.get(el.signIn)
             .click()
